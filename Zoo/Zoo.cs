@@ -31,7 +31,7 @@ namespace Zoo
         }
     }
 
-    public class Animal
+    public abstract class Animal
     {
         private String _name;
         private int _legs;
@@ -56,10 +56,35 @@ namespace Zoo
             return _legs;
         }
 
-        public class Bear : Animal
+    }
+
+    public class Bear : Animal
+    {
+        private String _hatStyle;
+
+        public String getHat()
         {
-
+            return _hatStyle;
         }
+    }
 
+    public class Lion : Animal
+    {
+        private String _cntryOfOrigin;
+
+        public String getCountry()
+        {
+            return _cntryOfOrigin;
+        }
+    }
+
+    public class Fox : Animal
+    {
+        private String _furColour;
+
+        public String getFurColour()
+        {
+            return _furColour;
+        }
     }
 }
