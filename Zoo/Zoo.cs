@@ -36,6 +36,17 @@ namespace Zoo
         private String _name;
         private int _legs;
 
+        public Animal(String name, int legs)
+        {
+            _name = name;
+            _legs = legs;
+        }
+
+        public override string ToString()
+        {
+            return "Name: " + _name + " Legs: " + _legs;
+        }
+
         public void setName(String name)
         {
             _name = name;
