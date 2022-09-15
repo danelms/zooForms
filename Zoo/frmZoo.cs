@@ -12,9 +12,35 @@ namespace Zoo
 {
     public partial class frmZoo : Form
     {
+        Zoo _zoo = new Zoo();
+        Bear _bear = new Bear("Reginald", 2, "Fez");
+
         public frmZoo()
         {
             InitializeComponent();
+        }
+
+        public void addAnimal(Animal a)
+        {
+            _zoo.addAnimal(a);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Form _anForm = new frmAnimal("Add animal", false, "Add");
+            _anForm.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form _anForm = new frmAnimal("Save changes", true, "Edit");
+            _anForm.Show();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            Form _anForm = new frmAnimal("Remove animal", true, "Remove");
+            _anForm.Show();
         }
     }
 }
