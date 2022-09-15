@@ -47,11 +47,6 @@ namespace Zoo
             return "Name: " + _name + " Legs: " + _legs;
         }
 
-        public void setName(String name)
-        {
-            _name = name;
-        }
-
         public String getName()
         {
             return _name;
@@ -73,6 +68,11 @@ namespace Zoo
     {
         private String _hatStyle;
 
+        public Bear(String name, int legs, String hatStyle) : base(name, legs)
+        {
+            _hatStyle = hatStyle;
+        }
+
         public String getHat()
         {
             return _hatStyle;
@@ -83,6 +83,11 @@ namespace Zoo
     {
         private String _cntryOfOrigin;
 
+        public Lion(String name, int legs, String countryOfOrigin) : base(name, legs)
+        {
+            _cntryOfOrigin = countryOfOrigin;
+        }
+
         public String getCountry()
         {
             return _cntryOfOrigin;
@@ -92,6 +97,11 @@ namespace Zoo
     public class Fox : Animal
     {
         private String _furColour;
+
+        public Fox(String name, int legs, String furColour) :base(name, legs)
+        {
+            _furColour = furColour;
+        }
 
         public String getFurColour()
         {
