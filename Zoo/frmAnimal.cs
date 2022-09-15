@@ -62,6 +62,7 @@ namespace Zoo
             }
 
             lblContextual.Text = _cntText;
+            lblContextual.Show();
         }
 
         private void comboSpecies_SelectedIndexChanged(object sender, EventArgs e)

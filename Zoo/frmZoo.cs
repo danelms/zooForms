@@ -18,7 +18,6 @@ namespace Zoo
         public frmZoo()
         {
             InitializeComponent();
-            _zoo.addAnimal(_bear);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -103,14 +103,17 @@
             // 
             // lblContextual
             // 
+            this.lblContextual.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblContextual.AutoSize = true;
             this.lblContextual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContextual.Location = new System.Drawing.Point(43, 202);
+            this.lblContextual.Location = new System.Drawing.Point(34, 202);
             this.lblContextual.Name = "lblContextual";
             this.lblContextual.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblContextual.Size = new System.Drawing.Size(0, 18);
+            this.lblContextual.Size = new System.Drawing.Size(140, 18);
             this.lblContextual.TabIndex = 7;
+            this.lblContextual.Text = "PLACEHOLDER   ";
             this.lblContextual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblContextual.Visible = false;
             // 
             // btnContextual
             // 
