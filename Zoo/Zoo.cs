@@ -8,7 +8,7 @@ namespace Zoo
 {
     class Zoo
     {
-        private List<Animal> _animals;
+        private List<Animal> _animals = new List<Animal>();
 
         public List<Animal> getAllAnimals()
         {
