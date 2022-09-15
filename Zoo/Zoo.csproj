@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnimal.Designer.cs">
+      <DependentUpon>frmAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zoo.cs" />
     <Compile Include="frmZoo.cs">
       <SubType>Form</SubType>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAnimal.resx">
+      <DependentUpon>frmAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmZoo.resx">
       <DependentUpon>frmZoo.cs</DependentUpon>
     </EmbeddedResource>
