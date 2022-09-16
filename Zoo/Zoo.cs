@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo
 {
-    class Zoo
+    public class Zoo
     {
         private List<Animal> _animals = new List<Animal>();
 

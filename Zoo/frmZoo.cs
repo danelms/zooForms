@@ -23,19 +23,19 @@ namespace Zoo
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Form _anForm = new frmAnimal("Add animal", false, "Add");
+            Form _anForm = new frmAnimal("Add animal", false, "Add", _zoo);
             _anForm.Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Form _anForm = new frmAnimal("Save changes", true, "Edit");
+            Form _anForm = new frmAnimal("Save changes", true, "Edit", _zoo);
             _anForm.Show();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            Form _anForm = new frmAnimal("Remove animal", true, "Remove");
+            Form _anForm = new frmAnimal("Remove animal", true, "Remove", _zoo);
             _anForm.Show();
         }
     }

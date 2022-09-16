@@ -13,14 +13,16 @@ namespace Zoo
     public partial class frmAnimal : Form
     {
         String _cntText = "";
+        Zoo _zoo = null;
 
-        public frmAnimal(String useType, bool showCombo, String mode)
+        public frmAnimal(String useType, bool showCombo, String mode, Zoo zoo)
         {
             InitializeComponent();
             comboSpecies.Items.Add("Bear");
             comboSpecies.Items.Add("Lion");
             comboSpecies.Items.Add("Fox");
             btnContextual.Text = useType;
+            _zoo = zoo;
 
             if (!showCombo)
             {
@@ -32,6 +34,14 @@ namespace Zoo
             {
                 txtBoxName.Enabled = false;
                 comboSpecies.Enabled = false;
+
+                foreach (Animal a in _zoo.getAllAnimals())
+                {
+                    if (a != null)
+                    {
+                        comboExisting.Items.Add(a.getName());
+                    }
+                }
 
                 if (mode.Equals("Remove"))
                 {
