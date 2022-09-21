@@ -15,6 +15,12 @@ namespace Zoo
         String _cntText = "";
         Zoo _zoo = null;
         Enum _frmType = null;
+        Animal _myAnimal = null;
+
+        public Animal getAnimal()
+        {
+            return _myAnimal; 
+        }
 
         public frmAnimal(String useType, frmZoo.FormType formType, Zoo zoo)
         {
@@ -55,14 +61,42 @@ namespace Zoo
 
         private void btnContextual_Click(object sender, EventArgs e)
         {
+            String _name, _contextual;
+            int _legs, _chosenIndex;
+
             switch (_frmType)
             {
+
                 case frmZoo.FormType.ADD:
-                    //call method to add animal
+                    switch (comboSpecies.SelectedIndex)
+                    {
+                        case 0:
+                            _name = txtBoxName.Text;
+                            _contextual = txtBoxContextual.Text;
+                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                            Bear _bear = new Bear(_name, _legs, _contextual);
+                            _myAnimal = _bear;
+                            break;
+
+                        case 1:
+                            _name = txtBoxName.Text;
+                            _contextual = txtBoxContextual.Text;
+                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                            Lion _lion = new Lion(_name, _legs, _contextual);
+                            _myAnimal = _lion;
+                            break;
+                        case 2:
+                            _name = txtBoxName.Text;
+                            _contextual = txtBoxContextual.Text;
+                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                            Fox _fox = new Fox(_name, _legs, _contextual);
+                            _myAnimal = _fox;
+                            break;
+                    }
                     break;
 
                 case frmZoo.FormType.EDIT:
-                    //call method to edit animal
+                    
                     break;
 
                 case frmZoo.FormType.REMOVE:

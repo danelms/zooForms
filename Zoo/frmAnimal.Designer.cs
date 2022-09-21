@@ -117,6 +117,7 @@
             // 
             // btnContextual
             // 
+            this.btnContextual.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnContextual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContextual.Location = new System.Drawing.Point(151, 265);
             this.btnContextual.Name = "btnContextual";

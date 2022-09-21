@@ -24,20 +24,31 @@ namespace Zoo
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Form _anForm = new frmAnimal("Add animal", FormType.ADD, _zoo);
-            _anForm.Show();
+            frmAnimal _anForm = new frmAnimal("Add animal", FormType.ADD, _zoo);
+            //Opens form as "Dialog"
+            if (_anForm.ShowDialog() == DialogResult.OK)
+            {
+                //Calls when DialogResult is OK (The context button is pressed)
+                _zoo.addAnimal(_anForm.getAnimal());
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Form _anForm = new frmAnimal("Save changes", FormType.EDIT, _zoo);
-            _anForm.Show();
+            if (_anForm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             Form _anForm = new frmAnimal("Remove animal", FormType.REMOVE, _zoo);
-            _anForm.Show();
+            if (_anForm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

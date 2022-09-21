@@ -25,6 +25,11 @@ namespace Zoo
             _animals.Add(a);
         }
 
+        public void editAnimal(Animal a)
+        {
+            //FILL IN
+        }
+
         public void removeAnimal(Animal a)
         {
             _animals.Remove(a);
