@@ -14,8 +14,9 @@ namespace Zoo
     {
         String _cntText = "";
         Zoo _zoo = null;
+        Enum _frmType = null;
 
-        public frmAnimal(String useType, bool showCombo, String mode, Zoo zoo)
+        public frmAnimal(String useType, frmZoo.FormType formType, Zoo zoo)
         {
             InitializeComponent();
             comboSpecies.Items.Add("Bear");
@@ -23,14 +24,9 @@ namespace Zoo
             comboSpecies.Items.Add("Fox");
             btnContextual.Text = useType;
             _zoo = zoo;
+            _frmType = formType;
 
-            if (!showCombo)
-            {
-                comboExisting.Enabled = false;
-                comboExisting.Hide();
-            }
-
-            if (mode.Equals("Edit") || mode.Equals("Remove"))
+            if (formType == frmZoo.FormType.REMOVE || formType == frmZoo.FormType.EDIT)
             {
                 txtBoxName.Enabled = false;
                 comboSpecies.Enabled = false;
@@ -43,17 +39,36 @@ namespace Zoo
                     }
                 }
 
-                if (mode.Equals("Remove"))
+                if (formType == frmZoo.FormType.REMOVE)
                 {
                     txtBoxLegs.Enabled = false;
                     txtBoxContextual.Enabled = false;
                 }
             }
+
+            else
+            {
+                comboExisting.Enabled = false;
+                comboExisting.Hide();
+            }
         }
 
         private void btnContextual_Click(object sender, EventArgs e)
         {
-            
+            switch (_frmType)
+            {
+                case frmZoo.FormType.ADD:
+                    //call method to add animal
+                    break;
+
+                case frmZoo.FormType.EDIT:
+                    //call method to edit animal
+                    break;
+
+                case frmZoo.FormType.REMOVE:
+                    //call method to remove animal
+                    break;
+            }
         }
 
         private void UpdateContextualText()
@@ -79,5 +94,6 @@ namespace Zoo
         {
             UpdateContextualText();
         }
+
     }
 }
