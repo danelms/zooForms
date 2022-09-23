@@ -19,7 +19,7 @@ namespace Zoo
 
         public Animal getAnimal()
         {
-            return _myAnimal; 
+            return _myAnimal; //Test
         }
 
         public frmAnimal(String useType, frmZoo.FormType formType, Zoo zoo)
