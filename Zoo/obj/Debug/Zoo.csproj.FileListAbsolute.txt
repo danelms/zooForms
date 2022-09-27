@@ -20,3 +20,4 @@ D:\ARU Year 2\Software Engineering\Forms Tasks\zooForms\Zoo\obj\Debug\Zoo.pdb
 D:\ARU Year 2\Software Engineering\Forms Tasks\zooForms\Zoo\bin\Debug\Zoo.exe.config
 D:\ARU Year 2\Software Engineering\Forms Tasks\zooForms\Zoo\bin\Debug\Zoo.exe
 D:\ARU Year 2\Software Engineering\Forms Tasks\zooForms\Zoo\bin\Debug\Zoo.pdb
+E:\ARU Year 2\Software Engineering\Forms Tasks\zooForms\Zoo\obj\Debug\Zoo.csproj.SuggestedBindingRedirects.cache

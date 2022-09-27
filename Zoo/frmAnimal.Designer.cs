@@ -136,6 +136,7 @@
             this.comboExisting.Size = new System.Drawing.Size(207, 23);
             this.comboExisting.TabIndex = 9;
             this.comboExisting.Text = "Select Existing Animal";
+            this.comboExisting.SelectedIndexChanged += new System.EventHandler(this.comboExisting_SelectedIndexChanged);
             // 
             // frmAnimal
             // 

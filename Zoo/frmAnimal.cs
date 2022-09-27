@@ -129,5 +129,39 @@ namespace Zoo
             UpdateContextualText();
         }
 
+        private void UpdateEditRemoveFields(int index)
+        {
+            Animal a = _zoo.getAnimal(index);
+
+            txtBoxName.Text = a.getName();
+            txtBoxLegs.Text = a.getLegs().ToString();
+            comboSpecies.Text = a.GetType().Name;
+            String _cntxt;
+
+            switch (a.GetType().Name)
+            {
+                case "Bear":
+                    Bear b = (Bear)a;
+                    _cntText = b.getHat();
+                    break;
+
+                case "Lion":
+                    Lion l = (Lion)a;
+                    _cntText = l.getCountry();
+                    break;
+                case "Fox":
+                    Fox f = (Fox)a;
+                    _cntText = f.getFurColour();
+                    break;
+            }
+
+            txtBoxContextual.Text = _cntText;
+
+        }
+
+        private void comboExisting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                UpdateEditRemoveFields(comboExisting.SelectedIndex);
+        }
     }
 }
