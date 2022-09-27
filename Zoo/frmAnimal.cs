@@ -62,46 +62,73 @@ namespace Zoo
         private void btnContextual_Click(object sender, EventArgs e)
         {
             String _name, _contextual;
-            int _legs, _chosenIndex;
+            int _legs;
 
-            switch (_frmType)
+            if (formCheck())
             {
+                switch (_frmType)
+                {
 
-                case frmZoo.FormType.ADD:
-                    switch (comboSpecies.SelectedIndex)
-                    {
-                        case 0:
-                            _name = txtBoxName.Text;
-                            _contextual = txtBoxContextual.Text;
-                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
-                            Bear _bear = new Bear(_name, _legs, _contextual);
-                            _myAnimal = _bear;
-                            break;
+                    case frmZoo.FormType.ADD:
+                        switch (comboSpecies.SelectedIndex)
+                        {
+                            case 0:
+                                _name = txtBoxName.Text;
+                                _contextual = txtBoxContextual.Text;
+                                _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                                Bear _bear = new Bear(_name, _legs, _contextual);
+                                _myAnimal = _bear;
+                                break;
 
-                        case 1:
-                            _name = txtBoxName.Text;
-                            _contextual = txtBoxContextual.Text;
-                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
-                            Lion _lion = new Lion(_name, _legs, _contextual);
-                            _myAnimal = _lion;
-                            break;
-                        case 2:
-                            _name = txtBoxName.Text;
-                            _contextual = txtBoxContextual.Text;
-                            _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
-                            Fox _fox = new Fox(_name, _legs, _contextual);
-                            _myAnimal = _fox;
-                            break;
-                    }
-                    break;
+                            case 1:
+                                _name = txtBoxName.Text;
+                                _contextual = txtBoxContextual.Text;
+                                _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                                Lion _lion = new Lion(_name, _legs, _contextual);
+                                _myAnimal = _lion;
+                                break;
+                            case 2:
+                                _name = txtBoxName.Text;
+                                _contextual = txtBoxContextual.Text;
+                                _legs = Int16.Parse(txtBoxLegs.Text); //NEED VALIDATION!!
+                                Fox _fox = new Fox(_name, _legs, _contextual);
+                                _myAnimal = _fox;
+                                break;
+                        }
+                        break;
 
-                case frmZoo.FormType.EDIT:
-                    
-                    break;
+                    case frmZoo.FormType.EDIT:
+                        Animal x = _zoo.getAnimal(comboExisting.SelectedIndex);
+                        switch (comboSpecies.SelectedIndex)
+                        {
+                            case 0:
+                                Bear b = new Bear(x.getName(), Int32.Parse(txtBoxLegs.Text), txtBoxContextual.Text);
+                                _zoo.removeAnimal(x);
+                                _zoo.addAnimal(b);
+                                break;
+                            case 1:
+                                Lion l = new Lion(x.getName(), Int32.Parse(txtBoxLegs.Text), txtBoxContextual.Text);
+                                _zoo.removeAnimal(x);
+                                _zoo.addAnimal(l);
+                                break;
+                            case 2:
+                                Fox f = new Fox(x.getName(), Int32.Parse(txtBoxLegs.Text), txtBoxContextual.Text);
+                                _zoo.removeAnimal(x);
+                                _zoo.addAnimal(f);
+                                break;
+                        }
 
-                case frmZoo.FormType.REMOVE:
-                    //call method to remove animal
-                    break;
+                        break;
+
+                    case frmZoo.FormType.REMOVE:
+                        Animal a = _zoo.getAnimal(comboExisting.SelectedIndex);
+                        _zoo.removeAnimal(a);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR\n\nPlease ensure that all fields are filled in correctly, none are left blank, and try again.");
             }
         }
 
@@ -162,6 +189,39 @@ namespace Zoo
         private void comboExisting_SelectedIndexChanged(object sender, EventArgs e)
         {
                 UpdateEditRemoveFields(comboExisting.SelectedIndex);
+        }
+
+        private bool formCheck()
+        {
+            int a;
+            bool b = true;
+
+            if (txtBoxName.Text.Equals(""))
+            {
+                b = false;
+            }
+            if (comboSpecies.Text.Equals(""))
+            {
+                b = false;
+            }
+            if (txtBoxLegs.Text.Equals(""))
+            {
+                b = false;
+            }
+            if (Int32.TryParse(txtBoxLegs.Text, out a).Equals(false))
+            {
+                b = false;
+            }
+            if (txtBoxContextual.Text.Equals(""))
+            {
+                b = false;
+            }
+            if (comboExisting.Visible && comboExisting.Text.Equals("Select Existing Animal"))
+            {
+                b = false;
+            }
+
+            return b;
         }
     }
 }
