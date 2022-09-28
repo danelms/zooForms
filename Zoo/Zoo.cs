@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Zoo
 {
@@ -12,26 +13,25 @@ namespace Zoo
 
         public List<Animal> getAllAnimals()
         {
+            Logger.getLogger().log("List<Animal> getAllAnimals()");
             return _animals;
         }
 
         public Animal getAnimal(int pos)
         {
+            Logger.getLogger().log("Animal getAnimal(int pos)");
             return _animals[pos];
         }
 
         public void addAnimal(Animal a)
         {
+            Logger.getLogger().log("addAnimal(Animal a)");
             _animals.Add(a);
-        }
-
-        public void editAnimal(Animal a)
-        {
-            //FILL IN
         }
 
         public void removeAnimal(Animal a)
         {
+            Logger.getLogger().log("removeAnimal(Animal a)");
             _animals.Remove(a);
         }
     }
@@ -111,6 +111,27 @@ namespace Zoo
         public String getFurColour()
         {
             return _furColour;
+        }
+    }
+
+    public sealed class Logger
+    {
+        private Logger() {}
+
+        private static Logger _instance;
+
+        public static Logger getLogger()
+        {
+            if (_instance == null)
+            {
+                _instance = new Logger();
+            }
+            return _instance;
+        }
+
+        public void log(String mes)
+        {
+            Debug.Print(mes);
         }
     }
 }
